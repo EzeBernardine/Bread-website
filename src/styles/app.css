@@ -2,24 +2,18 @@
   font-size: 18px;
   background-color: #811304;
   color: #f3dabe !important;
-  /* opacity: 0.7; */
   border: none;
 }
-
-
 .AppRoute{
   background-color: #9c976f;
   height: 679px
 }
-
-
 .AppRoute_body {
   background-color: rgb(255, 255, 255);
   height: 480px; 
-  margin-left: 15%;
-  margin-right: 15%;
+  margin: 0 15%;
 }
-
+/* header */
  .header {
    height: 200px;
    width: 200px;
@@ -35,21 +29,16 @@
    transform: rotate(120deg);
    background-color: #012501;
  } 
- 
  .header_left{
    height: 200px; 
    width: 5px; 
    transform: rotate(60deg);
    background-color: #0b2502;
  }
-
-
  /* home */
 .home_img{
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     width: 655px;
-    /* height: 20px; */
     background-color: #2c1201
 }
  .home_welcome {
@@ -59,10 +48,8 @@
    width: 895px;
    border: 1px solid #491d04;
    background-color: #27261d;
-   margin-top: 2%;
-   margin-bottom: 10%
+   margin: 2% 0 10% 0;
  }
-
 /* footer */
 .footer{
   background-color: #27271d;
@@ -107,14 +94,9 @@
   border-top: 1px solid #9c976f
 }
 .footer_detail2_email{
- color: #d6c105
+ color: #d68205
 }
-
-
-
  /* neader */
-
-
  .AllHeader_container {
    display: flex;
    align-items: baseline;
@@ -122,7 +104,6 @@
    background-color: #be2004;
    height: 40px;
  }
-
  .AllHeader_name{
    font-size: 30px;
    margin-top: 0;
@@ -140,7 +121,6 @@
  }
 
  /* signUp */
-
  .signUp{
    margin:  0% 0% 0 0%;
    background-color: #9c976f;
@@ -154,9 +134,9 @@
    background-color: #27261d;
  }
  .signUp_name h3, .signUp_passward h3, .signUp_email h3, .signUp_confirmpassward h3{
-   color: #ffffff
+   color: #ffffff;
+   font-size: 12px
  }
-
  .signUp_name, .signUp_passward, .signUp_email, .signUp_confirmpassward {
    margin: 5%;
  }
@@ -164,7 +144,7 @@
   margin-left: 10%;
   width: 80%;
   background-color: #cedbd0;
-  height: 20px
+  height: 15px
  }
  .signUp_getStarted{
    text-align: center;
@@ -172,10 +152,6 @@
    color: #d3ac81
   }
   
- 
-
-
-
  /* signIN */
 .signIn{
   height: 500px;
@@ -200,8 +176,6 @@
   height: 30px;
   margin-left: 10%
  }
-
-
 
  /* butto */
  .button{
@@ -232,13 +206,13 @@
     width: 500px
   }
   .order_form{
-    margin: 0% 20% 0 0%;
-    padding-left: 5%;
-    padding-right: 5%;
-     height: 500px;
-     width: 200px;;
-     border: 1px solid #27261d;
-     background-color: #27261d;
+  margin: 0% 20% 0 0%;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 500px;
+  width: 200px;;
+  border: 1px solid #27261d;
+  background-color: #27261d;
 }
 .order_form input {
  width: 100%;
@@ -272,7 +246,6 @@
     margin: auto;
     border: 1px solid #9c976f;
  }
- 
  .profile_middle_container{
    background-color: #fdfdfd;
    height: 450px;
@@ -316,7 +289,6 @@
    font-size: 8px;
    margin-left: 10%;
    margin-top: 20%;
-   /* height: 10px; */
  }
 
  /* bread */

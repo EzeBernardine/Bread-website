@@ -4,6 +4,10 @@ import Button from './Button';
 import  Footer from './Footer'
 
 export default class Order extends React.Component{
+  handleOrder=(e)=>{
+    e.preventDefault();
+    alert('order')
+  }
   render(){
     return(
       <div>
@@ -26,7 +30,7 @@ export default class Order extends React.Component{
                <h3>Time</h3>
                <input></input>
              </div>
-          <Button />
+          <Button order={this.handleOrder}/>
           </div>
         </form>
         <div className='order_message'>

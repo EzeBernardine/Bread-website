@@ -39,7 +39,7 @@ export default class Footer extends React.Component{
           <h3 className='footer_detail2_email'>
           <FaEnvelope />
           demayou1@gmail.com</h3>
-          <h3><FaPhone />07038065257</h3>
+          <h3>07038065257<FaPhone /></h3>
           <h3><FaHome/>No 52 I dont know Street</h3>
         </div>
      </div>
