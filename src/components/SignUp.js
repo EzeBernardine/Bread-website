@@ -1,13 +1,18 @@
 import React from 'react';
-import AllHeader from './AllHeader';
 import Button from './Button'
-import Header from './Header'
 
 export default class SignUp extends React.Component{
+   handleSignup=(e)=>{
+    e.preventDefault()
+    alert('signup')
+  }
   render(){
     return(
       <div className='signUp'>
        <form className='signUp_container'>
+         <div className='signUp_getStarted'>
+           <h1>Sign up and get started</h1>
+         </div>
          <div className='signUp_name'>
            <h3>NAME</h3>
            <input></input>
@@ -21,11 +26,12 @@ export default class SignUp extends React.Component{
            <input></input>
          </div>
          <div className='signUp_confirmpassward'>
-           <h3>confirm password</h3>
+           <h3>CONFIRM PASSWORD</h3>
            <input></input>
+         < Button signup={this.handleSignup}/ >
          </div>
-         <Button />
        </form>
+       
      </div>
     )
   }

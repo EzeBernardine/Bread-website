@@ -1,27 +1,29 @@
 import React from 'react';
 import AllHeader from './AllHeader';
-import Button from './Button'
+import Button from './Button';
+import  Footer from './Footer'
 
 export default class Order extends React.Component{
   render(){
     return(
+      <div>
       <div className='order'>
         <form>
           <div className='order_form'>
              <div>
-               <h3>no of loaves</h3>
+               <h3> No of loaves</h3>
                <input></input>
              </div>
              <div>
-               <h3>location</h3>
+               <h3>Location</h3>
                <input></input>
              </div>
              <div>
-               <h3>date</h3>
+               <h3>Date</h3>
                <input></input>
              </div>
              <div>
-               <h3>time</h3>
+               <h3>Time</h3>
                <input></input>
              </div>
           <Button />
@@ -41,6 +43,9 @@ export default class Order extends React.Component{
           < img src="./images/order3.jpg" className = 'order_img' / >
           < img src="./images/order4.jpg" className = 'order_img' / >
         </div>
+      </div>
+          < img src="./images/OrderNow.png" className = 'order_ordernow' / >
+          <Footer />
       </div>
     )
   }

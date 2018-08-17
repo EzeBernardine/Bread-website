@@ -15,7 +15,7 @@ export default class Profile extends React.Component{
                  <h2 className='profile_name'>NAME</h2>
                  <div className='profile_ongoing_middle'>
                    <button className='profile_ongoing'>profile</button>
-                   <button className='profile_ongoing'>sales</button>
+                   <button className='profile_ongoing' activeClassName="is-active">sales</button>
                  </div>
                </div>
 

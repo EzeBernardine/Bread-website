@@ -14,11 +14,11 @@ export default class SignIn extends React.Component{
             <input></input>
           </div>
           <div className = 'signIn_passward' >
-            <h3>passward</h3>
+            <h3>Passward</h3>
             <input></input>
           </div>
-        </div>
         <Button />
+        </div>
       </form>
     </div>
     )
