@@ -11,28 +11,43 @@ export default class SignUp extends React.Component{
   state={
     usernameError: undefined,
     emptyUsername: undefined,
-    passwordError: undefined
-  }
+    emptyPassword: undefined,
+    confirmpasswordError: undefined,
+    emailError: undefined
+  };
     handleSignupSubmit = (e) => {
       e.preventDefault()
+      let p = [',', '.', '/', '<', '>', '?', ':', ';', '"', '', '[', '{', ']', '}', '\|', '|', '\'', '-', '_', '=', '+', ')', '(', '*', '&', '^', '%', '$', '#', '@', '!', '~', '`']
       let name = document.forms[0].name.value.trim()
       let password = document.forms[0].password.value.trim()
       let confirmpassword = document.forms[0].confirmpassword.value.trim()
       let username = document.forms[0].username.value.trim()
+      let email = document.forms[0].email.value.trim()
       nameList.push(name)
-      console.log(confirmpassword)
-      console.log(password)
-      {!(confirmpassword === password) ? (this.setState(()=>({passwordError: 'password does not match'}))) : (this.setState(()=>({passwordError: undefined})))}
-      if(!confirmpasswordList.includes(confirmpassword)&& confirmpassword.length>0 && (confirmpassword === password)){
+
+      {!email.includes('@') && email.length>0? (this.setState(()=>({emailError: 'email must contain @ character'}))) : (this.setState(()=>({emailError: undefined})))}
+      {email.length <=0? (this.setState(()=>({emailError: 'email is required'}))) : (this.setState(()=>({emailError: undefined})))}
+      if(email.length>0 && !emailList.includes(email) && email.includes('@')){
+        emailList.push(email);
+        console.log(emailList)
+      }
+// let seen = p.forEach((i)=>i)
+// console.log(seen)
+// console.log((p.forEach((i) => p[i])))
+      {!(confirmpassword === password) ? (this.setState(()=>({confirmpasswordError: 'password does not match'}))) : (this.setState(()=>({confirmpasswordError: undefined})))}
+      for(let i =0; i<=p.length; i++){
+        {( p[i]=== password)? (this.setState(()=>({emptyPassword: 'put a valid password'}))) : (this.setState(()=>({emptyPassword: undefined})))}
+      }
+
+      if(!confirmpasswordList.includes(confirmpassword) && confirmpassword.length>0 && (confirmpassword === password)){
         confirmpasswordList.push(confirmpassword)
         console.log(confirmpasswordList)
       }
       
-      let match = userNameList.includes(username)
-      let len = username.length > 0
-      {match ?(this.setState(()=>({usernameError: 'usename  already exist'}))) :(this.state.usernameError)}
-      {!len?(this.setState(()=>({emptyUsername: 'input a valid username'}))) :(this.state.emptyUsername)}
-      if (!match && len) {
+
+      { userNameList.includes(username) ?(this.setState(()=>({usernameError: 'usename  already exist'}))) :(this.setState(()=>({usernameError: undefined})))}
+      {!username.length > 0?(this.setState(()=>({emptyUsername: 'input a valid username'}))) :(this.setState(()=>({emptyUsername: undefined})))}
+      if (!userNameList.includes(username) && username.length > 0) {
         userNameList.push(username)
         console.log(userNameList)
       }
@@ -56,16 +71,20 @@ export default class SignUp extends React.Component{
            <input id='username'></input>
          </div>
          <div className='signUp_passward'>
-           <h3>PASSWORD</h3>
+           <h3>PASSWORD
+             <span className='signUp_error_empty'>{this.state.emptyPassword}</span>
+           </h3>
            <input id='password'></input>
          </div>
          <div className='signUp_email'>
-           <h3>EMAIL</h3>
+           <h3>EMAIL
+              <span className='signUp_error_empty'>{this.state.emailError}</span>
+           </h3>
            <input id='email'></input>
          </div>
          <div className='signUp_confirmpassward'>
             <h3>CONFIRM PASSWORD
-              <span className='signUp_error_empty'>{this.state.passwordError}</span>
+              <span className='signUp_error_empty'>{this.state.confirmpasswordError}</span>
             </h3>
            <input id='confirmpassword'></input>
          < Button signup={this.handleSignup}/ >
