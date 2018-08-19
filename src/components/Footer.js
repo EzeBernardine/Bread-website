@@ -5,27 +5,30 @@ export default class Footer extends React.Component{
     return(
       <div className='footer'>
         <div className='footer_writup_div'>
+          <div className='footer_products'>
+            <h2>Our Products</h2>
+          </div>
           <div className='footer_writeup'>
             <div className = 'footer_bread_types' >
-              < img src="./images/shop.jpg" className = 'footer_bread_samples' / >
-              <h2>Wheat</h2>
+              < img src="./images/drink7.jpg" className = 'footer_bread_samples' / >
+              <h2>Orange</h2>
               <p>availble only  in small sizes</p>
             </div>
 
             < div className = 'footer_bread_types' >
-              < img src="./images/f.jpeg" className = 'footer_bread_samples' / >
-               <h2>Loaf</h2>
+              < img src="./images/drink1.jpeg" className = 'footer_bread_samples' / >
+               <h2>Champman</h2>
                <p>available in any form</p>
             </div>
 
              <div className = 'footer_bread_types' >
-               < img src="./images/breadslice.jpg" className = 'footer_bread_samples' / >
-               <h2>slice</h2>
+               < img src="./images/drink5.jpeg" className = 'footer_bread_samples' / >
+               <h2>Zobo</h2>
                <p>available in all types</p>
             </div>
 
             <div className = 'footer_bread_types'>
-         `     < img src="./images/fron.jpg" className = 'footer_bread_samples '/ >
+         `     < img src="./images/drink3.jpg" className = 'footer_bread_samples '/ >
                <h2>Spring</h2>
                <p>available in all form</p>
             </div>

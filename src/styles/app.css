@@ -1,3 +1,8 @@
+body{
+  font-family: 'Ubuntu', Arial, Helvetica, sans-serif
+}
+
+
 .is-active {
   font-size: 18px;
   background-color: #811304;
@@ -36,20 +41,33 @@
    background-color: #0b2502;
  }
  /* home */
+ .home{
+   display: flex;
+   flex-direction: column;
+   background-color: #ffffff;
+   height: 470px;
+   border: 1px solid #ffffff;
+ }
 .home_img{
     margin: auto;
     width: 655px;
-    background-color: #2c1201
 }
  .home_welcome {
    color: #ffffff;
    text-align: center;
    padding: 10px;
-   width: 895px;
-   border: 1px solid #491d04;
+   border: 1px solid #27261d;
    background-color: #27261d;
-   margin: 2% 0 10% 0;
+   margin: 2% 0 0% 0;
  }
+ .home_info{
+   text-align: center;
+   margin: 2% 10%;
+   font-size: 10px
+ }
+.home_footer{
+  margin-top: 10%
+}
 /* footer */
 .footer{
   background-color: #27271d;
@@ -58,8 +76,13 @@
   display: flex;
   flex-direction: column
 }
+.footer_products{
+  justify-content: center;
+  display: flex;
+  color: #ffffff;
+   margin-top: 3% !important;
+}
 .footer_writeup {
-  margin-top: 5.8% !important;
   display: flex;
   height: 200px;
   margin: auto;
@@ -133,14 +156,14 @@
     width: 600px;
    background-color: #27261d;
  }
- .signUp_name h3, .signUp_passward h3, .signUp_email h3, .signUp_confirmpassward h3{
+ .signUp_name h3,.signUp_username h3, .signUp_passward h3, .signUp_email h3, .signUp_confirmpassward h3{
    color: #ffffff;
    font-size: 12px
  }
- .signUp_name, .signUp_passward, .signUp_email, .signUp_confirmpassward {
+ .signUp_name,.signUp_username, .signUp_passward, .signUp_email, .signUp_confirmpassward {
    margin: 5%;
  }
- .signUp_name input, .signUp_passward input, .signUp_email input, .signUp_confirmpassward input{
+ .signUp_name input, .signUp_username input, .signUp_passward input, .signUp_email input, .signUp_confirmpassward input{
   margin-left: 10%;
   width: 80%;
   background-color: #cedbd0;
@@ -150,6 +173,10 @@
    text-align: center;
    margin: auto 10%;
    color: #d3ac81
+  }
+  .signUp_error_empty{
+    color: red;
+    margin-left: 20px
   }
   
  /* signIN */

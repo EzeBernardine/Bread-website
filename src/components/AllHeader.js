@@ -6,7 +6,7 @@ export default class AllHeader extends React.Component{
     return(
       <div className='AllHeader'>
         <div className='AllHeader_container'>
-            <h1 className='AllHeader_name'>MAY LOAVES</h1>
+            <h1 className='AllHeader_name'>DRINKLIFE</h1>
             <div className='AllHeader_navlinks'>
               <NavLink className='AllHeader_navlink' exact={true} to="/" activeClassName="is-active"> Home </NavLink>
               <NavLink className='AllHeader_navlink' to="/Profile" activeClassName="is-active" exact={true}> Profile</NavLink>
