@@ -203,7 +203,11 @@ body{
   height: 30px;
   margin-left: 10%
  }
-
+.signin_error{
+  color: #f3a806 !important;
+  text-align: center !important;
+  margin-bottom: 0;
+}
  /* butto */
  .button{
     padding: 10px;
