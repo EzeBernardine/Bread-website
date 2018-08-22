@@ -15,18 +15,27 @@ export default class SignIn extends React.Component{
   };
   getLocalStorageU=()=>JSON.parse(localStorage.getItem('username'))
   getLocalStorageP=()=>JSON.parse(localStorage.getItem('password')) 
-  validateUserName=(e)=>{
+  getInputAndStoredU=()=>{
+    const {username} = this.getInputValues()
+    const storedUserName = this.getLocalStorageU();
+    return ({username, storedUserName})
+  }
+  getInputAndStoredP = () => {
+     const { password} = this.getInputValues()
+    const storedPassword = this.getLocalStorageP();
+    return ({password, storedPassword})
+  };
+  handleSignIn=(e)=>{
     e.preventDefault()
-    const {username, password} = this.getInputValues()
-    const getUserName = this.getLocalStorageU();
-    const getPassword = this.getLocalStorageP();
-    let match =  (getUserName.indexOf(username) === getPassword.indexOf(password) && getUserName.indexOf(username) != -1)
+    const {password, storedPassword} = this.getInputAndStoredP()
+    const {username, storedUserName} = this.getInputAndStoredU()
+    let match =  (storedUserName.indexOf(username) === storedPassword.indexOf(password) && storedUserName.indexOf(username) != -1)
     {match?  (this.setState(()=>({signinError: 'Success'}))) : (this.setState(()=>({signinError: 'Failed'})))}
   }
   render(){
     return(
       <div className='signIn'>
-       <form onChange={this.handleChange} onSubmit={this.validateUserName}>
+       <form onChange={this.handleChange} onSubmit={this.handleSignIn}>
         <div className='signIn_container'>
           <div className = 'signIn_name' >
             <h3 className='signin_error'>{this.state.signinError}</h3>
