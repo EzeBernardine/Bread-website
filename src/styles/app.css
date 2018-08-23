@@ -219,11 +219,11 @@ body{
 
  /* order */
  .order{
-   margin: 0% 20% 0 -20%;
+   margin: -7.1% 20% 0 -20%;
    height: 500px;
    width: 1200px;
    background-color: #ffffff;
-   display: flex
+   display: flex;
   }
   .order_samples{
     margin: 5% 1% 0 0%;
@@ -261,9 +261,23 @@ body{
   float: right;
  transform: rotate(340deg);
 }
+.order_profile{
+  color: #ffffff;
+  font-size: 150%;
+}
+.order_profileDiv{
+  align-content: center;
+  height: 15px;
+  width: 15px;;
+  margin-top: 20px;
+   margin-left: 1050px ;
+   padding: 1.5%; 
+   border: 1px solid #ffffff; border-radius: 100%;
+}
+
 
  /* profile */
- .profile_main{
+ .profile{
      margin: 0% 0% 0 0%;
      height: 550px;
      width: 1000px;
@@ -271,15 +285,15 @@ body{
      display: flex;
      align-content: center
  }
- .profile_container{
+ .profile_sub{
     height: 500px;
     width: 350px;
     margin: auto;
     border: 1px solid #9c976f;
  }
- .profile_middle_container{
+ .profile_container{
    background-color: #fdfdfd;
-   height: 450px;
+   height: 500px;
    opacity: 0.8;
  }
  .profile_img_div {
@@ -294,34 +308,41 @@ body{
     height: 100px;
     width: 100px;
  }
- .profile_ongoing_div{
-   height: 50px;
- }
- .profile_name{
-   text-align: center
- }
- .profile_ongoing_middle{
-   display: flex;
+ .profile_navlink_route{
+   height: 365px !important;
+   
   }
-  .profile_ongoing{
+  .profile_name{
+    padding: 8px;
+    margin: 5% 0 0 0 ;
+    text-align: center
+  }
+  .profile_navlink{
+   display: flex;
+   margin-top: 0
+  }
+  .profile_button{
    padding: 20px;
    width: 200px;
    border: 1px solid #f8f6f4;
    background-color: #27261d;
+   text-decoration: none;
    color: #ffffff
  }
-.profile_phone , .profile_passward {
-   display: flex;
-   font-size: 8px;
+.profile_switch{
+   font-size: 12px;
    margin-top: 10%;
-   justify-content: space-around
+   text-align: center
  } 
- .profile_detail {
-   font-size: 8px;
-   margin-left: 10%;
-   margin-top: 20%;
- }
 
+/* subProfile */
+.subProfile_password, .subProfile_phone{
+  border-bottom: 1px solid rgb(133, 106, 106)
+}
+.subProfile_password h3,
+.subProfile_phone h3{
+  justify-content: space-around;
+}
  /* bread */
  .top_container{
    display: flex;

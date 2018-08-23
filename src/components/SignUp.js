@@ -5,6 +5,8 @@ import uuid from 'uuid';
 let UCPDatabase = [];
 let uDatabase = [];
 let pDatabase = []
+let emailDatabase = []
+let phoneDatabase = []
 export default class SignUp extends React.Component{
   state={
     usernameError: undefined,
@@ -12,17 +14,17 @@ export default class SignUp extends React.Component{
     emailError: undefined
   };
   getValues=()=>{
-    let name = document.forms[0].name.value.trim()
+    let phone = document.forms[0].phone.value.trim()
     let password = document.forms[0].password.value.trim()
     let confirmpassword = document.forms[0].confirmpassword.value.trim()
     let username = document.forms[0].username.value.trim()
     let email = document.forms[0].email.value.trim();
-    return ({ name, password, confirmpassword, username, email })
+    return ({ phone, password, confirmpassword, username, email })
   };
   validateUsername=()=>{
     const {username} = this.getValues();
     if (UCPDatabase.includes(username)){
-      this.setState(() => ({ usernameError: 'usename  already exist' }))
+      this.setState(() => ({ usernameError: 'username  already exist' }))
       return false
     }else{
       UCPDatabase.push(username)
@@ -52,13 +54,27 @@ export default class SignUp extends React.Component{
     allPassword.push(password)
     return localStorage.setItem('password', JSON.stringify(allPassword));
   }
+  saveEmailStorage = (email) => {
+    let prevEmail = JSON.parse(localStorage.getItem('email'))
+    let allEmail = emailDatabase.concat(prevEmail)
+    allEmail.push(email)
+    return localStorage.setItem('email', JSON.stringify(allEmail));
+  }
+  savePhoneStorage = (phone) => {
+    let prevPhone = JSON.parse(localStorage.getItem('phone'))
+    let allPhone = phoneDatabase.concat(prevPhone)
+    allPhone.push(phone)
+    return localStorage.setItem('phone', JSON.stringify(allPhone));
+  }
   saveDetails=(e)=>{
     e.preventDefault()
-    let { name, password, confirmpassword, username, email } =  this.getValues()
-    if(this.validatePassword() && this.validateUsername()){
+    let { phone, password, confirmpassword, username, email } =  this.getValues()
+    if( this.validateUsername() && this.validatePassword()){
       this.saveUnameStorage(username)
       this.savePasswordStorage(password)
-      location.href='/signin'
+      this.saveEmailStorage(email)
+      this.savePhoneStorage(phone)
+      window.location.href='/signin'
     }
   }
   render(){
@@ -69,8 +85,8 @@ export default class SignUp extends React.Component{
            <h1>Sign up and get started</h1>
          </div>
          <div className='signUp_name'>
-           <h3>NAME</h3>
-            <input required={true} id='name'></input>
+           <h3>PHONE NUMBER</h3>
+            <input required={true} id='phone'></input>
          </div>
          <div className='signUp_username'>
            <h3>USER NAME 

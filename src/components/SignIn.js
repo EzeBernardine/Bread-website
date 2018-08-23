@@ -1,8 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch,Link , NavLink} from 'react-router-dom';
-import AllHeader from './AllHeader';
 import Button from './Button'
-
 
 export default class SignIn extends React.Component{
   state={
@@ -11,6 +9,7 @@ export default class SignIn extends React.Component{
   getInputValues=()=>{
     let username = document.forms[0].signinUserName.value.trim()
     let password = document.forms[0].signinPassword.value.trim()
+    localStorage.setItem("signInUserName", JSON.stringify(username))
      return ({ username, password})
   };
   getLocalStorageU=()=>JSON.parse(localStorage.getItem('username'))
@@ -29,8 +28,13 @@ export default class SignIn extends React.Component{
     e.preventDefault()
     const {password, storedPassword} = this.getInputAndStoredP()
     const {username, storedUserName} = this.getInputAndStoredU()
-    let match =  (storedUserName.indexOf(username) === storedPassword.indexOf(password) && storedUserName.indexOf(username) != -1)
-    {match?  (this.setState(()=>({signinError: 'Success'}))) : (this.setState(()=>({signinError: 'Failed'})))}
+    let match = (password === storedPassword[storedUserName.indexOf(username)] && storedUserName.indexOf(username) != -1 && storedUserName.indexOf(username) != null)
+    if(match){
+      this.setState(()=>({signinError: 'Success'}))
+      location.href='/order'
+    }else{
+      this.setState(()=>({signinError: 'Failed'}))
+    }
   }
   render(){
     return(
@@ -46,7 +50,7 @@ export default class SignIn extends React.Component{
             <h3>Passward</h3>
             <input name="signinPassword" required={true} id='signinPassword'></input>
           </div>
-        <Button signin={this.handleSignin}/>
+        <Button />
         </div>
       </form>
     </div>
