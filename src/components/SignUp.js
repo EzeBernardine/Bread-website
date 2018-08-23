@@ -84,15 +84,15 @@ export default class SignUp extends React.Component{
          <div className='signUp_getStarted'>
            <h1>Sign up and get started</h1>
          </div>
-         <div className='signUp_name'>
-           <h3>PHONE NUMBER</h3>
-            <input required={true} id='phone'></input>
-         </div>
          <div className='signUp_username'>
            <h3>USER NAME 
              <span className='signUp_error_empty'>{this.state.usernameError}</span>
            </h3>
             <input required={true} id='username'></input>
+         </div>
+         <div className='signUp_name'>
+           <h3>PHONE NUMBER</h3>
+            <input required={true} id='phone'></input>
          </div>
          <div className='signUp_email'>
            <h3>EMAIL

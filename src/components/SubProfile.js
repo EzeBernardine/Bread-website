@@ -15,15 +15,15 @@ export default class SubProfile extends React.Component{
         <div className='profile_detail'>
           < div className = 'subProfile_password' >
             <h2>Pasword </h2>
-            {<h3>{userPassword}</h3>}
+            <h3>{userPassword}</h3>
           </div>
           <div className = 'subProfile_phone' >
             <h2>Phone number  </h2>
-            {<h3>{userPhone}</h3>}
+            <h3>{userPhone}</h3>
           </div>
           <div className = 'subProfile_phone' >
             <h2>Email  </h2>
-            {<h3>{userEmail}</h3>}
+            <h3>{userEmail}</h3>
           </div>
         </div>
       </div>
