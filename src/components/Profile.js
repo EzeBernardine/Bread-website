@@ -15,7 +15,7 @@ const Profile = () => (
             <img src="./images/person.png" className = 'profile_img' / >
           </div> 
           <div className='profile_navlink_route'>
-           { <h2 className='profile_name'>{userUsername}</h2>}
+            <h2 className='profile_name'>{userUsername}</h2>
             <div className='profile_navlink'>
               <NavLink to='/subProfile' className='profile_button'>Profile</NavLink>
               <NavLink to='/subSales' className='profile_button' >Sales</NavLink>

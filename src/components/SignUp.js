@@ -2,7 +2,6 @@ import React from 'react';
 import Button from './Button';
 import uuid from 'uuid';
 
-let UCPDatabase = [];
 let uDatabase = [];
 let pDatabase = []
 let emailDatabase = []
@@ -23,11 +22,10 @@ export default class SignUp extends React.Component{
   };
   validateUsername=()=>{
     const {username} = this.getValues();
-    if (UCPDatabase.includes(username)){
+    if (localStorage.getItem('username').includes(username)) {
       this.setState(() => ({ usernameError: 'username  already exist' }))
       return false
     }else{
-      UCPDatabase.push(username)
       this.setState(() => (({ usernameError: undefined }))) 
       return true
     }
@@ -103,13 +101,13 @@ export default class SignUp extends React.Component{
          <div className='signUp_passward'>
            <h3>PASSWORD
            </h3>
-            <input required={true} id='password'></input>
+            <input type='password' required={true} id='password'></input>
          </div>
          <div className='signUp_confirmpassward'>
             <h3>CONFIRM PASSWORD
-              <span className='signUp_error_empty'>{this.state.confirmpasswordError}</span>
+              <span  className='signUp_error_empty'>{this.state.confirmpasswordError}</span>
             </h3>
-            <input required={true} id='confirmpassword'></input>
+            <input type='password'required={true} id='confirmpassword'></input>
          < Button / >
          </div>
        </form>

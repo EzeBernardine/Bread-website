@@ -1,5 +1,4 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch,Link , NavLink} from 'react-router-dom';
 import Button from './Button'
 
 export default class SignIn extends React.Component{
@@ -48,7 +47,7 @@ export default class SignIn extends React.Component{
           </div>
           <div className = 'signIn_passward' >
             <h3>Passward</h3>
-            <input name="signinPassword" required={true} id='signinPassword'></input>
+            <input  type='password' name="signinPassword" required={true} id='signinPassword'></input>
           </div>
         <Button />
         </div>
