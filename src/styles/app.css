@@ -295,10 +295,11 @@ body{
    background-color: #fdfdfd;
    height: 500px;
    opacity: 0.8;
+   display: flex;
+   flex-direction: column;
  }
  .profile_img_div {
    display: flex;
-   margin-top: 5%;
    justify-content: center
   }
   .profile_img{
@@ -343,6 +344,10 @@ body{
 .subProfile_phone h3{
   justify-content: space-around;
 }
+ .subSales_cart{
+   font-size: 30px;
+   margin-top: 5%;
+ }
  /* bread */
  .top_container{
    display: flex;
