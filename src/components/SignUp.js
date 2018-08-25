@@ -22,7 +22,7 @@ export default class SignUp extends React.Component{
   };
   validateUsername=()=>{
     const {username} = this.getValues();
-    if (localStorage.getItem('username').includes(username)) {
+    if (localStorage.getItem('username') != null && localStorage.getItem('username').includes(username)) {
       this.setState(() => ({ usernameError: 'username  already exist' }))
       return false
     }else{

@@ -191,17 +191,13 @@ body{
   border: 1px solid #000700;
   background-color: #272519;
  }
-  .signIn_name h3, .signIn_passward h3{
-  color: #ddd7b4;
-  margin: 3% 10%
- }
  .signIn_name input, .signIn_passward input {
   width: 80%;
   color: #ffffff;
   border: none;
   background-color: #000300;
   height: 30px;
-  margin-left: 10%
+  margin: 5% 10%;
  }
 .signin_error{
   color: #f3a806 !important;

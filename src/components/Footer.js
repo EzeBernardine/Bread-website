@@ -17,7 +17,7 @@ export default class Footer extends React.Component{
 
             < div className = 'footer_bread_types' >
               < img src="./images/drink1.jpeg" className = 'footer_bread_samples' / >
-               <h2>Champman</h2>
+               <h2>Chapman</h2>
                <p>available in any form</p>
             </div>
 

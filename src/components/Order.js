@@ -2,37 +2,67 @@ import React from 'react';
 import {FaUserEdit} from'react-icons/fa'
 import {BrowserRouter, Route, Switch,Link , NavLink} from 'react-router-dom';
 import Button from './Button';
-import  Footer from './Footer'
+import  Footer from './Footer';
+import uuid from 'uuid';
 
+let  orderDatabase = []
 export default class Order extends React.Component{
-  handleOrder=(e)=>{
+  getValues=()=>{
+    let cups = document.forms[0].cups.value.trim()
+    let location = document.forms[0].location.value.trim()
+    let date = document.forms[0].date.value.trim()
+    let time = document.forms[0].time.value.trim();
+    // let 
+    return ({cups, location, date, time})
+  }
+  storeData=()=>{
+    let  {cups, location, date, time} = this.getValues();
+    return ({
+      cups: cups,
+      location: location,
+      date: date,
+      time: time,
+      uuid: uuid()
+    }) 
+  }
+  saveOrder=()=>{
+    let inputData  = this.storeData()
+    localStorage.setItem("inputData", JSON.stringify(inputData))
+    let prevData = JSON.parse(localStorage.getItem('orderDatabase'))
+    let allData = orderDatabase.concat(prevData)
+    allData.push(inputData)
+    return localStorage.setItem('orderDatabase', JSON.stringify(allData));
+  }
+  handleSubmitOrder=(e)=>{
     e.preventDefault();
-    alert('order')
+    this.saveOrder()
+    let get = JSON.parse(localStorage.getItem('orderDatabase'));
+    // console.log(get)
   }
   render(){
     return(
       <div>
         <div className='order_profileDiv'>
-          <NavLink className='order_profile' to="/Profile"  exact={true}> <FaUserEdit /></NavLink>
+          <NavLink className='order_profile' to="/Profile"  exact={true}><FaUserEdit /></NavLink>
         </div>
         <div className='order'>
-          <form>
+          <form onSubmit={this.handleSubmitOrder}>
             <div className='order_form'>
               <div>
-                <h3> No of loaves</h3>
-                <input></input>
+                <h3> No of cups</h3>
+                <input required={true} id='cups'></input>
               </div>
               <div>
                 <h3>Location</h3>
-                <input></input>
+                <input required={true} id='location'></input>
               </div>
               <div>
                 <h3>Date</h3>
-                <input></input>
+                <input required={true} id='date'></input>
               </div>
               <div>
                 <h3>Time</h3>
-                <input></input>
+                <input required={true} id='time'></input>
               </div>
             <Button order={this.handleOrder}/>
             </div>

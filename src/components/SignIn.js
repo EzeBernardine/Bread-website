@@ -38,16 +38,14 @@ export default class SignIn extends React.Component{
   render(){
     return(
       <div className='signIn'>
-       <form onChange={this.handleChange} onSubmit={this.handleSignIn}>
+       <form  onSubmit={this.handleSignIn}>
         <div className='signIn_container'>
           <div className = 'signIn_name' >
             <h3 className='signin_error'>{this.state.signinError}</h3>
-            <h3>Username</h3>
-            <input required={true} name="signinName" id='signinUserName'></input>
+            <input placeholder='Username' required={true} name="signinName" id='signinUserName'></input>
           </div>
           <div className = 'signIn_passward' >
-            <h3>Passward</h3>
-            <input  type='password' name="signinPassword" required={true} id='signinPassword'></input>
+            <input placeholder='Passward'  type='password' name="signinPassword" required={true} id='signinPassword'></input>
           </div>
         <Button />
         </div>

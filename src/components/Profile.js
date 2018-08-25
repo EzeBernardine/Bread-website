@@ -5,9 +5,11 @@ import subSales from '../components/SubSales';
 
 let signInUserName = JSON.parse(localStorage.getItem('signInUserName'))
 let username = JSON.parse(localStorage.getItem('username'))
-let userUsername = username[username.indexOf(signInUserName)]
+let userUsername;
+{(localStorage.getItem('username') != null) ? (userUsername = username[username.indexOf(signInUserName)]) : (userUsername = '')}
+
 const Profile = () => ( 
- <BrowserRouter>
+  <BrowserRouter>
     <div className='profile'>
       <div className='profile_sub'>
         <div className='profile_container'>
@@ -30,7 +32,7 @@ const Profile = () => (
         </div>
       </div>
     </div> 
- </BrowserRouter>
+  </BrowserRouter>
 );
 export default Profile;
 
