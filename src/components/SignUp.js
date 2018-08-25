@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import uuid from 'uuid';
-
+let signUpDatabase = []
 let uDatabase = [];
 let pDatabase = []
 let emailDatabase = []
@@ -46,24 +46,24 @@ export default class SignUp extends React.Component{
     allUsername.push(username)
     return localStorage.setItem('username', JSON.stringify(allUsername));
   }
-  savePasswordStorage = (password) => {
-    let prevPassword = JSON.parse(localStorage.getItem('password'))
-    let allPassword = pDatabase.concat(prevPassword)
-    allPassword.push(password)
-    return localStorage.setItem('password', JSON.stringify(allPassword));
-  }
-  saveEmailStorage = (email) => {
-    let prevEmail = JSON.parse(localStorage.getItem('email'))
-    let allEmail = emailDatabase.concat(prevEmail)
-    allEmail.push(email)
-    return localStorage.setItem('email', JSON.stringify(allEmail));
-  }
-  savePhoneStorage = (phone) => {
-    let prevPhone = JSON.parse(localStorage.getItem('phone'))
-    let allPhone = phoneDatabase.concat(prevPhone)
-    allPhone.push(phone)
-    return localStorage.setItem('phone', JSON.stringify(allPhone));
-  }
+  // savePasswordStorage = (password) => {
+  //   let prevPassword = JSON.parse(localStorage.getItem('password'))
+  //   let allPassword = pDatabase.concat(prevPassword)
+  //   allPassword.push(password)
+  //   return localStorage.setItem('password', JSON.stringify(allPassword));
+  // }
+  // saveEmailStorage = (email) => {
+  //   let prevEmail = JSON.parse(localStorage.getItem('email'))
+  //   let allEmail = emailDatabase.concat(prevEmail)
+  //   allEmail.push(email)
+  //   return localStorage.setItem('email', JSON.stringify(allEmail));
+  // }
+  // savePhoneStorage = (phone) => {
+  //   let prevPhone = JSON.parse(localStorage.getItem('phone'))
+  //   let allPhone = phoneDatabase.concat(prevPhone)
+  //   allPhone.push(phone)
+  //   return localStorage.setItem('phone', JSON.stringify(allPhone));
+  // }
   saveDetails=(e)=>{
     e.preventDefault()
     let { phone, password, confirmpassword, username, email } =  this.getValues()

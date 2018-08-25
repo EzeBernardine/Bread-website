@@ -12,21 +12,10 @@ export default class Order extends React.Component{
     let location = document.forms[0].location.value.trim()
     let date = document.forms[0].date.value.trim()
     let time = document.forms[0].time.value.trim();
-    // let 
     return ({cups, location, date, time})
   }
-  storeData=()=>{
-    let  {cups, location, date, time} = this.getValues();
-    return ({
-      cups: cups,
-      location: location,
-      date: date,
-      time: time,
-      uuid: uuid()
-    }) 
-  }
   saveOrder=()=>{
-    let inputData  = this.storeData()
+    let inputData  = this.getValues()
     localStorage.setItem("inputData", JSON.stringify(inputData))
     let prevData = JSON.parse(localStorage.getItem('orderDatabase'))
     let allData = orderDatabase.concat(prevData)
@@ -37,7 +26,6 @@ export default class Order extends React.Component{
     e.preventDefault();
     this.saveOrder()
     let get = JSON.parse(localStorage.getItem('orderDatabase'));
-    // console.log(get)
   }
   render(){
     return(
