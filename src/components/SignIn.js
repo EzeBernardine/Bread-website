@@ -11,23 +11,28 @@ export default class SignIn extends React.Component{
     localStorage.setItem("signInUserName", JSON.stringify(username))
      return ({ username, password})
   };
-  getLocalStorageU=()=>JSON.parse(localStorage.getItem('username'))
-  getLocalStorageP=()=>JSON.parse(localStorage.getItem('password')) 
+  getLocalStorage = () => {
+    let signUpDatabase = JSON.parse(localStorage.getItem('signUpDatabase'));
+    {(signUpDatabase[0] === null) && signUpDatabase.shift()};
+    return signUpDatabase
+  };
   getInputAndStoredU=()=>{
     const {username} = this.getInputValues()
-    const storedUserName = this.getLocalStorageU();
-    return ({username, storedUserName})
+    const signUpDatabase = this.getLocalStorage();
+    let usernameIndex = signUpDatabase.findIndex(i => i.username === username);
+    return ({username, usernameIndex})
   }
   getInputAndStoredP = () => {
      const { password} = this.getInputValues()
-    const storedPassword = this.getLocalStorageP();
-    return ({password, storedPassword})
+    const signUpDatabase = this.getLocalStorage();
+    let PASSWORD = signUpDatabase;
+    return ({password, PASSWORD})
   };
   handleSignIn=(e)=>{
     e.preventDefault()
-    const {password, storedPassword} = this.getInputAndStoredP()
-    const {username, storedUserName} = this.getInputAndStoredU()
-    let match = (password === storedPassword[storedUserName.indexOf(username)] && storedUserName.indexOf(username) != -1 && storedUserName.indexOf(username) != null)
+    const {password, PASSWORD} = this.getInputAndStoredP()
+    const {username, usernameIndex} = this.getInputAndStoredU()
+    let match = (PASSWORD[usernameIndex] && password === PASSWORD[usernameIndex].password && usernameIndex != -1 && usernameIndex != null)
     if(match){
       this.setState(()=>({signinError: 'Success'}))
       location.href='/order'

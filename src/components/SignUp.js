@@ -1,11 +1,9 @@
 import React from 'react';
 import Button from './Button';
 import uuid from 'uuid';
+
+
 let signUpDatabase = []
-let uDatabase = [];
-let pDatabase = []
-let emailDatabase = []
-let phoneDatabase = []
 export default class SignUp extends React.Component{
   state={
     usernameError: undefined,
@@ -21,12 +19,19 @@ export default class SignUp extends React.Component{
     return ({ phone, password, confirmpassword, username, email })
   };
   validateUsername=()=>{
-    const {username} = this.getValues();
-    if (localStorage.getItem('username') != null && localStorage.getItem('username').includes(username)) {
-      this.setState(() => ({ usernameError: 'username  already exist' }))
-      return false
+    if (signUpDatabase.length > 0){
+      let signUpDatabase = JSON.parse(localStorage.getItem('signUpDatabase'));
+      {(signUpDatabase[0] === null) && signUpDatabase.shift()}
+      const {username} = this.getValues();
+      let Indexx = signUpDatabase.findIndex(i => i.username === username);
+      if (localStorage.getItem('signUpDatabase') != null && Indexx != -1) {
+        this.setState(() => ({ usernameError: 'username  already exist' }))
+        return false
+      }else{
+        this.setState(() => (({ usernameError: undefined }))) 
+        return true
+      }
     }else{
-      this.setState(() => (({ usernameError: undefined }))) 
       return true
     }
   };
@@ -40,38 +45,17 @@ export default class SignUp extends React.Component{
       return true
     }
   };
-  saveUnameStorage = (username) => {
-    let prevUsername = JSON.parse(localStorage.getItem('username'))
-    let allUsername = uDatabase.concat(prevUsername)
-    allUsername.push(username)
-    return localStorage.setItem('username', JSON.stringify(allUsername));
+  saveToLocalStorage = () => {
+    let inputValues = this.getValues()
+    let prevsignUpDatabase = JSON.parse(localStorage.getItem('signUpDatabase'))
+    let allsignUpDatabase = signUpDatabase.concat(prevsignUpDatabase)
+    allsignUpDatabase.push(inputValues)
+    return localStorage.setItem('signUpDatabase', JSON.stringify(allsignUpDatabase));
   }
-  // savePasswordStorage = (password) => {
-  //   let prevPassword = JSON.parse(localStorage.getItem('password'))
-  //   let allPassword = pDatabase.concat(prevPassword)
-  //   allPassword.push(password)
-  //   return localStorage.setItem('password', JSON.stringify(allPassword));
-  // }
-  // saveEmailStorage = (email) => {
-  //   let prevEmail = JSON.parse(localStorage.getItem('email'))
-  //   let allEmail = emailDatabase.concat(prevEmail)
-  //   allEmail.push(email)
-  //   return localStorage.setItem('email', JSON.stringify(allEmail));
-  // }
-  // savePhoneStorage = (phone) => {
-  //   let prevPhone = JSON.parse(localStorage.getItem('phone'))
-  //   let allPhone = phoneDatabase.concat(prevPhone)
-  //   allPhone.push(phone)
-  //   return localStorage.setItem('phone', JSON.stringify(allPhone));
-  // }
   saveDetails=(e)=>{
     e.preventDefault()
-    let { phone, password, confirmpassword, username, email } =  this.getValues()
     if( this.validateUsername() && this.validatePassword()){
-      this.saveUnameStorage(username)
-      this.savePasswordStorage(password)
-      this.saveEmailStorage(email)
-      this.savePhoneStorage(phone)
+      this.saveToLocalStorage()
       window.location.href='/signin'
     }
   }

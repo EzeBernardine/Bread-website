@@ -25,7 +25,6 @@ export default class Order extends React.Component{
   handleSubmitOrder=(e)=>{
     e.preventDefault();
     this.saveOrder()
-    let get = JSON.parse(localStorage.getItem('orderDatabase'));
   }
   render(){
     return(

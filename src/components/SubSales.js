@@ -7,11 +7,17 @@ export default class SubSales extends React.Component{
   render(){
     let inputData = JSON.parse(localStorage.getItem('inputData'))
     let orderDatabase = JSON.parse(localStorage.getItem('orderDatabase'));
-    {(orderDatabase[0] === null) && orderDatabase.shift()}
-    let Indexx = orderDatabase.findIndex(i => i.cups === inputData.cups);
-    let cups = orderDatabase[Indexx].cups;
+    let cups;
     let sales;
-    {(cups.length > 0) ? (sales = 'active') : (sales = 'none avtive')}
+    if( orderDatabase != null){
+        {(orderDatabase[0] === null) && orderDatabase.shift()}
+        let Indexx = orderDatabase.findIndex(i => i.cups === inputData.cups);
+        cups = orderDatabase[Indexx].cups;
+        {(cups.length > 0) ? (sales = 'active') : (sales = 'none avtive')}
+    }else{
+        cups = 0;
+        sales; 'not active';
+    }
     return(
       <div className='profile_main'>
         <div className='profile_detail'>
