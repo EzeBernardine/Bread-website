@@ -25,7 +25,7 @@ export default class SubSales extends React.Component{
             <h2>No of cups</h2>
             <h3>{cups}</h3>
           </div>
-          < div className = 'subProfile_phone' >
+          <div className = 'subProfile_phone' >
             <h2>Current sales</h2>
             <h3>{sales}</h3>
           </div>

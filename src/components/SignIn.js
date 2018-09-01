@@ -47,7 +47,7 @@ export default class SignIn extends React.Component{
         <div className='signIn_container'>
           <div className = 'signIn_name' >
             <h3 className='signin_error'>{this.state.signinError}</h3>
-            <input placeholder='Username' required={true} name="signinName" id='signinUserName'></input>
+            <input placeholder='Username' required={true} name="signinName" id='signinUserName' autoFocus={true}></input>
           </div>
           <div className = 'signIn_passward' >
             <input placeholder='Passward'  type='password' name="signinPassword" required={true} id='signinPassword'></input>

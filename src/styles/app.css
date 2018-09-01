@@ -10,11 +10,11 @@ body{
   border: none;
 }
 .AppRoute{
-  background-color: #9c976f;
+  background-color: #fcfcfc;
   height: 679px
 }
 .AppRoute_body {
-  background-color: rgb(255, 255, 255);
+  background-color: #ffffff;
   height: 480px; 
   margin: 0 15%;
 }
@@ -49,21 +49,28 @@ body{
    border: 1px solid #ffffff;
  }
 .home_img{
-    margin: auto;
-    width: 655px;
+    /* margin: auto; */
+    width: 900px;
+    margin: -405px 1% 1% 0%; 
 }
- .home_welcome {
-   color: #ffffff;
+.home_welcome_div{
+  width: 900px;
+  height: 405px;
+  opacity: 0.5;
+  border: 1px solid #27261d;
+  background-color: #27261d;
+}
+.home_welcome {
+  margin: -7% 1% 1% 3%; 
+  opacity: 1 !important;
+  color: #ffffff;
+  z-index: 1;
+  font-size: 15px
+}
+.home_info{
    text-align: center;
-   padding: 10px;
-   border: 1px solid #27261d;
-   background-color: #27261d;
-   margin: 2% 0 0% 0;
- }
- .home_info{
-   text-align: center;
-   margin: 2% 10%;
-   font-size: 10px
+   margin: 10% 10% 5% 10%;
+   font-size: 20px
  }
 .home_footer{
   margin-top: 10%
@@ -84,29 +91,30 @@ body{
 }
 .footer_writeup {
   display: flex;
+  justify-content: space-around;
   height: 200px;
   margin: auto;
-  width: 800px;
-  border: 3px solid #27261d;
+  width: 800px;  
   background-color: #fff8f7;
-  justify-content: space-between
 }
 .footer_bread_samples {
-  width: 150px;
+ height: 100px;
 }
 .footer_bread_types {
  width: 180px;
- color: #410e02;
+ color: #474642;
+ display: flex;
+ flex-direction: column
 }
 .footer_bread_types p {
- width: 200px;
- height: 20px;
- margin-top: -20px
+ margin-top: -20px ;
+ text-align: start
 }
 .footer_detail1{
   margin: auto;
   color: #f1d4c2;
-  text-align: center
+  text-align: center;
+  font-size: 10px
 }
 .footer_detail1 h3{
   margin-bottom: -5%
@@ -146,7 +154,6 @@ body{
  /* signUp */
  .signUp{
    margin:  0% 0% 0 0%;
-   background-color: #9c976f;
    width: 1000px;
    height: 550px;
    display: flex;
@@ -163,7 +170,7 @@ body{
  .signUp_name,.signUp_username, .signUp_passward, .signUp_email, .signUp_confirmpassward {
    margin: 5%;
  }
- .signUp_name input, .signUp_username input, .signUp_passward input, .signUp_email input, .signUp_confirmpassward input{
+ .signUp_input {
   margin-left: 10%;
   width: 80%;
   background-color: #cedbd0;
@@ -178,12 +185,26 @@ body{
     color: red;
     margin-left: 20px
   }
-  
+  .signUp_img{
+    border: 1px solid red;
+    background-color: #ffffff;
+    height: 30px;
+    width: 30%;
+    margin: 3%;
+    overflow: hidden;
+  }
+  .signUp_button {
+    display: flex;
+    justify-content: space-around
+  }
+  .signUp_button input{
+    margin: 2% 0% 0 -15%
+  }
  /* signIN */
 .signIn{
   height: 500px;
   width: 1000px;;
-  background-color: #9c976f;
+  /* background-color: #9c976f; */
 }
  .signIn_container{
    margin : 5% 20% 0 20%;
@@ -258,7 +279,7 @@ body{
  transform: rotate(340deg);
 }
 .order_profile{
-  color: #ffffff;
+  color: #e00505;
   font-size: 150%;
 }
 .order_profileDiv{
@@ -268,7 +289,8 @@ body{
   margin-top: 20px;
    margin-left: 1050px ;
    padding: 1.5%; 
-   border: 1px solid #ffffff; border-radius: 100%;
+   border: 1px solid #c70404; 
+   border-radius: 100%;
 }
 
 
@@ -277,37 +299,40 @@ body{
      margin: 0% 0% 0 0%;
      height: 550px;
      width: 1000px;
-     background-color: #9c976f;
+     background-color: #ffffff;
      display: flex;
-     align-content: center
- }
- .profile_sub{
-    height: 500px;
-    width: 350px;
-    margin: auto;
-    border: 1px solid #9c976f;
- }
- .profile_container{
-   background-color: #fdfdfd;
-   height: 500px;
-   opacity: 0.8;
-   display: flex;
-   flex-direction: column;
- }
- .profile_img_div {
-   display: flex;
-   justify-content: center
-  }
-  .profile_img{
-    z-index: 1;
-    margin-top: 5%;
-    border-radius: 100%;
-    height: 100px;
-    width: 100px;
- }
- .profile_navlink_route{
-   height: 365px !important;
-   
+     align-content: center;
+    }
+    .profile_sub{
+      height: 500px;
+      width: 350px;
+      margin: auto;
+       box-shadow:  0 0 8px 2px rgba(0, 0, 0, .3);
+      /* border: 1px solid #9c976f; */
+      /* background-color : #27261d; */
+    }
+    .profile_container{
+      height: 500px;
+      opacity: 0.8;
+      display: flex;
+      flex-direction: column;
+      background-color: #fcf3f2;
+     
+    }
+    .profile_img_div {
+      display: flex;
+      justify-content: center
+    }
+    .profile_img{
+      z-index: 1;
+      margin-top: 5%;
+      border-radius: 100%;
+      height: 100px;
+      width: 100px;
+    }
+    .profile_navlink_route{
+      height: 365px !important;
+      
   }
   .profile_name{
     padding: 8px;
@@ -319,26 +344,28 @@ body{
    margin-top: 0
   }
   .profile_button{
+    width: 100%;
    padding: 20px;
-   width: 200px;
    border: 1px solid #f8f6f4;
    background-color: #27261d;
    text-decoration: none;
-   color: #ffffff
+   color: #ffffff;
+   text-align: center;
  }
 .profile_switch{
    font-size: 12px;
-   margin-top: 10%;
-   text-align: center
+   margin: 10% 0 0 10%;
  } 
 
 /* subProfile */
-.subProfile_password, .subProfile_phone{
-  border-bottom: 1px solid rgb(133, 106, 106)
-}
 .subProfile_password h3,
 .subProfile_phone h3{
-  justify-content: space-around;
+  margin: -10% 0 0 40%;
+  width: 50px
+}
+.subProfile_password input,
+.subProfile_phone input {
+  width: 150px
 }
  .subSales_cart{
    font-size: 30px;

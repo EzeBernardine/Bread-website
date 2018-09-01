@@ -5,7 +5,7 @@ export default class Button extends React.Component{
     return(
       <div>
         <button 
-          onClick={this.props.signup || this.props.signin || this.props.order} 
+          onClick={this.props.subProfile} 
           className='button'> submit
         </button>
      </div>

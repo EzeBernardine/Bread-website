@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import uuid from 'uuid';
+import axios from 'axios'
 
 
 let signUpDatabase = []
@@ -16,7 +17,8 @@ export default class SignUp extends React.Component{
     let confirmpassword = document.forms[0].confirmpassword.value.trim()
     let username = document.forms[0].username.value.trim()
     let email = document.forms[0].email.value.trim();
-    return ({ phone, password, confirmpassword, username, email })
+    let img = document.forms[0].img.value.trim();
+    return ({ phone, password, confirmpassword, username, email, img})
   };
   validateUsername=()=>{
     if (signUpDatabase.length > 0){
@@ -54,9 +56,27 @@ export default class SignUp extends React.Component{
   }
   saveDetails=(e)=>{
     e.preventDefault()
+
     if( this.validateUsername() && this.validatePassword()){
+      let phone = document.forms[0].phone.value.trim()
+      let password = document.forms[0].password.value.trim()
+      let confirmpassword = document.forms[0].confirmpassword.value.trim()
+      let username = document.forms[0].username.value.trim()
+      let email = document.forms[0].email.value.trim();
       this.saveToLocalStorage()
-      window.location.href='/signin'
+      axios({
+        method: 'http://local:5000/signUpDatabase',
+        data: {
+          phone, 
+          password, 
+          confirmpassword, 
+          username, 
+          email
+        },
+      }).then(res => {
+        console.log(res)
+      })
+      // window.location.href='/signin'
     }
   }
   render(){
@@ -70,30 +90,33 @@ export default class SignUp extends React.Component{
            <h3>USER NAME 
              <span className='signUp_error_empty'>{this.state.usernameError}</span>
            </h3>
-            <input required={true} id='username'></input>
+            <input className='signUp_input' required={true} id='username' autoFocus={true}></input>
          </div>
          <div className='signUp_name'>
            <h3>PHONE NUMBER</h3>
-            <input required={true} id='phone'></input>
+            <input className='signUp_input' required={true} id='phone'></input>
          </div>
          <div className='signUp_email'>
            <h3>EMAIL
               <span className='signUp_error_empty'>{this.state.emailError}</span>
            </h3>
-           <input required={true} id='email'></input>
+           <input className='signUp_input' required={true} id='email'></input>
          </div>
          <div className='signUp_passward'>
            <h3>PASSWORD
            </h3>
-            <input type='password' required={true} id='password'></input>
+            <input className='signUp_input' type='password' required={true} id='password'></input>
          </div>
          <div className='signUp_confirmpassward'>
             <h3>CONFIRM PASSWORD
               <span  className='signUp_error_empty'>{this.state.confirmpasswordError}</span>
             </h3>
-            <input type='password'required={true} id='confirmpassword'></input>
-         < Button / >
+            <input className='signUp_input' type='password'required={true} id='confirmpassword'></input>
          </div>
+        <div className='signUp_button'>
+          <input type='file' className='signUp_img' id='img'></input>
+          <Button / >
+        </div>
        </form>
        
      </div>

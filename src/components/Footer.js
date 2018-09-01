@@ -10,27 +10,32 @@ export default class Footer extends React.Component{
           </div>
           <div className='footer_writeup'>
             <div className = 'footer_bread_types' >
-              < img src="./images/drink7.jpg" className = 'footer_bread_samples' / >
-              <h2>Orange</h2>
-              <p>availble only  in small sizes</p>
+              <img src="./images/drink7.jpg" className = 'footer_bread_samples'/>
+              <div>
+                <h2>Orange</h2>
+                <p>availble only  in small sizes</p>
+              </div>
             </div>
-
-            < div className = 'footer_bread_types' >
-              < img src="./images/drink1.jpeg" className = 'footer_bread_samples' / >
-               <h2>Chapman</h2>
-               <p>available in any form</p>
+            <div className = 'footer_bread_types' >
+              <img src="./images/drink1.jpeg" className = 'footer_bread_samples'/>
+              <div>
+                <h2>Chapman</h2>
+                <p>available in any form</p>
+              </div>
             </div>
-
              <div className = 'footer_bread_types' >
                < img src="./images/drink5.jpeg" className = 'footer_bread_samples' / >
-               <h2>Zobo</h2>
-               <p>available in all types</p>
+               <div>
+                <h2>Zobo</h2>
+                <p>available in all types</p>
+               </div>
             </div>
-
             <div className = 'footer_bread_types'>
-         `     < img src="./images/drink3.jpg" className = 'footer_bread_samples '/ >
-               <h2>Spring</h2>
-               <p>available in all form</p>
+              <img src="./images/drink3.jpg" className = 'footer_bread_samples '/ >
+              <div>
+                <h2>Spring</h2>
+                <p>available in all form</p>
+              </div>
             </div>
           </div>
         </div>
@@ -40,8 +45,8 @@ export default class Footer extends React.Component{
         </div>
         <div className='footer_detail2'>
           <h3 className='footer_detail2_email'>
-          <FaEnvelope />
-          demayou1@gmail.com</h3>
+            <FaEnvelope /> demayou1@gmail.com
+          </h3>
           <h3>07038065257<FaPhone /></h3>
           <h3><FaHome/>No 52 I dont know Street</h3>
         </div>

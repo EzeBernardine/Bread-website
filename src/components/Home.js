@@ -5,7 +5,8 @@ export default class Home extends React.Component{
   render(){
     return(
       <div className='home'>
-        <div className='home_img'>
+        <div className='home_imlg'>
+        <div className='home_welcome_div'></div>   
           < img src="./images/dri.jpg" className = 'home_img' />
         </div>
         <h1 className='home_welcome'>WELCOME TO  NATURAL DRINKS</h1>
