@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Switch,Link , NavLink, PropsRoute} from 'react-rou
 import subProfile from '../components/SubProfile';
 import subSales from '../components/SubSales';
 
-let img = <img src="./images/person.png" className = 'profile_img' / >
+let img = <img src="./images/person.png" className = 'profile_img' />
 let signInUserName = JSON.parse(localStorage.getItem('signInUserName'))
 let userUsername;
 {signInUserName != null ? (userUsername = signInUserName) : (userUsername = '')}

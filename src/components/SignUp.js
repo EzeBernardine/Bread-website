@@ -17,8 +17,8 @@ export default class SignUp extends React.Component{
     let confirmpassword = document.forms[0].confirmpassword.value.trim()
     let username = document.forms[0].username.value.trim()
     let email = document.forms[0].email.value.trim();
-    let img = document.forms[0].img.value.trim();
-    return ({ phone, password, confirmpassword, username, email, img})
+    // let img = document.forms[0].img.value.trim();
+    return ({ phone, password, confirmpassword, username, email})
   };
   validateUsername=()=>{
     if (signUpDatabase.length > 0){
